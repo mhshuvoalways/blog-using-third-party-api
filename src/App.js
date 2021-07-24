@@ -51,7 +51,6 @@ class App extends Component {
   // }
 
   componentDidMount() {
-    console.log(process.env.REACT_APP_NEWS_URL)
     news.getNews()
       .then(data => {
         this.setState({ data, isLoading: false })

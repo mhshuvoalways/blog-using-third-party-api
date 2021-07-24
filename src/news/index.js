@@ -24,7 +24,6 @@ class News {
     async getNews() {
         try {
             const { data } = await Axios.get(this._getUrl())
-            console.log(data)
             this._totalPage = Math.ceil(data.totalResults / this._pageSize)
             return {
                 articles: data.articles,

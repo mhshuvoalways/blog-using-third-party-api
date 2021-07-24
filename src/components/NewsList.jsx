@@ -125,7 +125,7 @@ const NewsList = React.forwardRef(({ news }, ref) => {
             {news && news.map(item => (
                 <NewsItem
                     ref={ref}
-                    key={item.title}
+                    key={item.url}
                     item={item} />
             ))}
         </div>
