@@ -23,13 +23,7 @@ class News {
 
     async getNews() {
         try {
-            let config = {
-                headers: {
-                    "Content-Type": "application/json",
-                    'Access-Control-Allow-Origin': '*',
-                }
-            }
-            const { data } = await Axios.get(this._getUrl(), config)
+            const { data } = await Axios.get(this._getUrl())
             this._totalPage = Math.ceil(data.totalResults / this._pageSize)
             return {
                 articles: data.articles,
