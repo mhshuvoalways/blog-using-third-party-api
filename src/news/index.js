@@ -81,7 +81,7 @@ class News {
         if (this._searchTerm) url += `&q=${this._searchTerm}`
         if (this._pageSize) url += `&pageSize=${this._pageSize}`
         if (this._currentPage) url += `&page=${this._currentPage}`
-console.log(url);
+
         return url
     }
 

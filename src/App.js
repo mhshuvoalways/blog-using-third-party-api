@@ -4,16 +4,10 @@ import News, { newsCategory } from './news/index'
 import NewsList from './components/NewsList'
 import Pagination from './components/Pagination'
 import Loading from './components/Loading'
-// import ForwardRef from './components/forwordRef'
-// import Axios from 'axios';
 
 const news = new News(newsCategory.technology)
 
 class App extends Component {
-  // state = {
-  //   news: [],
-  //   category: newsCategory.technology
-  // }
 
   state = {
     data: {},
@@ -21,34 +15,9 @@ class App extends Component {
   }
 
   aboutResult = React.createRef()
-  forwordRef = React.createRef()
   searchRef = React.createRef()
   cbRef = null
   itemRefList = []
-  
-  // componentDidMount() {
-  // let url = `${process.env.REACT_APP_NEWS_URL}?apiKey=${process.env.REACT_APP_API_KEY}&category=${this.state.category}&pageSize=5`
-  // Axios.get(url)
-  //   .then(response => {
-  //     this.setState({ news: response.data.articles })
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
-  // }
-
-  // componentDidUpdate(prevProps, prevState) {
-  // if (prevState.category !== this.state.category) {
-  //   let url = `${process.env.REACT_APP_NEWS_URL}?apiKey=${process.env.REACT_APP_API_KEY}&category=${this.state.category}&pageSize=5`
-  //   Axios.get(url)
-  //     .then(response => {
-  //       this.setState({ news: response.data.articles })
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
-  // }
 
   componentDidMount() {
     news.getNews()
@@ -59,10 +28,6 @@ class App extends Component {
         alert('Something went wrong')
         this.setState({ isLoading: false })
       })
-    // console.dir(this.forwordRef.current)
-    // console.dir(this.searchRef.current.focus())
-    // console.log(this.cbRef)
-    // console.log(this.itemRefList)
   }
 
   next = () => {
@@ -142,10 +107,6 @@ class App extends Component {
     window.scroll(0, this.aboutResult.current.scrollTop)
   }
 
-  // refCallback = element => {
-  //   this.cbRef = element
-  // }
-
   render() {
     const {
       articles,
@@ -154,7 +115,8 @@ class App extends Component {
       category,
       totalResults,
       currentPage,
-      totalPage } = this.state.data
+      totalPage } = this.state.data;
+      
     return (
       <div className='container'>
         <div className='row'>
@@ -165,28 +127,26 @@ class App extends Component {
               changeCategory={this.changeCategory}
               search={this.search} />
             <div className='d-flex' ref={this.aboutResult}>
-              {/* <p ref={this.refCallback} className='text-black-50'>About {totalResults} result found</p> */}
               <p ref={(el) => this.cbRef = el} className='text-black-50'>About {totalResults} result found</p>
               <p className='text-black-50 ml-auto'>{currentPage} page of {totalPage}</p>
             </div>
             {this.state.isLoading ? (
               <Loading />
             ) : (
-                <div>
-                  <NewsList ref={this.itemRefList} news={articles} />
-                  <Pagination
-                    next={this.next}
-                    prev={this.prev}
-                    isNext={isNext}
-                    isPrevious={isPrevious}
-                    totalPage={totalPage}
-                    currentPage={currentPage}
-                    handlePageChange={this.handlePageChange}
-                    gotoPage={this.gotoPage} />
-                </div>
-              )}
+              <div>
+                <NewsList ref={this.itemRefList} news={articles} />
+                <Pagination
+                  next={this.next}
+                  prev={this.prev}
+                  isNext={isNext}
+                  isPrevious={isPrevious}
+                  totalPage={totalPage}
+                  currentPage={currentPage}
+                  handlePageChange={this.handlePageChange}
+                  gotoPage={this.gotoPage} />
+              </div>
+            )}
             <button onClick={this.gotoTop} className='btn btn-primary' >Go to top</button>
-            {/* <ForwardRef ref={this.forwordRef} /> */}
           </div>
         </div>
       </div>
