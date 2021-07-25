@@ -1,9 +1,5 @@
 import Axios from 'axios';
 
-const PROXY = window.location.hostname === "localhost"
-    ? "https://cors-anywhere.herokuapp.com"
-    : "/cors-proxy";
-
 const intence = Axios.create({
     baseURL: process.env.REACT_APP_NEWS_URL
 })
