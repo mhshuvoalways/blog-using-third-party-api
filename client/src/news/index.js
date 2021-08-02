@@ -23,7 +23,7 @@ class News {
 
     async getNews() {
         try {
-            const { data } = await Axios.get(this._getUrl())
+            const { data } = await Axios.get(`/api/${this._getUrl()}`)
             this._totalPage = Math.ceil(data.totalResults / this._pageSize)
             return {
                 articles: data.articles,
@@ -75,7 +75,7 @@ class News {
     }
 
     _getUrl() {
-        let url = '?'
+        let url = ''
 
         if (this._category) url += `&category=${this._category}`
         if (this._searchTerm) url += `&q=${this._searchTerm}`
