@@ -1,5 +1,4 @@
-// import Axios from '../utils/axios'
-import Axios from 'axios'
+import Axios from '../utils/axios'
 
 export const newsCategory = {
     technology: 'technology',
@@ -21,24 +20,6 @@ class News {
         this._currentPage = 1
         this._totalPage = 1
     }
-
-    // async getNews() {
-    //     try {
-    //         const { data } = await Axios.get(this._getUrl())
-    //         this._totalPage = Math.ceil(data.totalResults / this._pageSize)
-    //         return {
-    //             articles: data.articles,
-    //             isNext: this._isNext(),
-    //             isPrevious: this._isPrevious(),
-    //             totalResults: data.totalResults,
-    //             category: this._category,
-    //             totalPage: this._totalPage,
-    //             currentPage: this._currentPage
-    //         }
-    //     } catch (e) {
-    //         throw new Error(e)
-    //     }
-    // }
 
     async getNews() {
         try {
@@ -94,7 +75,6 @@ class News {
     }
 
     _getUrl() {
-        // let url = '?'
         let url = ''
 
         if (this._category) url += `&category=${this._category}`
