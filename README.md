@@ -1,6 +1,6 @@
 # React Blog App
 
-This is a simple blog app using third party API service. It lives at https://react-blog-app-mhs.netlify.app
+This is a simple blog app using third party API service. There are two branchs. Main branch will run only development mood and production branch will run production mood. It lives at https://blog-app-mhs.netlify.app
 
 ```bash
 Feature:
@@ -13,6 +13,7 @@ Technology:
 • CSS
 • Bootstrap
 • Reactjs
+• Netlify
 ```
 
 ## Get started
