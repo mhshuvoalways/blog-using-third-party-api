@@ -1,20 +1,13 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const axios = require('./utils/axios')
+const api = require('./api')
+
 
 const app = express()
 app.use(cors())
 
-app.get('/api/:url', async (req, res) => {
-    let getUrl = req.params.url
-    try {
-        const { data } = await axios.get(`?${getUrl}`)
-        res.status(200).json(data)
-    } catch {
-        res.status(200).json('Something is wrong')
-    }
-})
+app.use('/api', api)
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
