@@ -6,8 +6,8 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "name": "react-blog-app",
   "version": "1.0.0",
@@ -23,5 +23,8 @@
   },
   "homepage": "https://github.com/mhshuvoit/react-blog-app#readme",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
