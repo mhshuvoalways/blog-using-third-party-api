@@ -9,9 +9,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "name": "react-blog-app",
+  "name": "blog-using-third-party-api",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mhshuvoit/react-blog-app.git"
