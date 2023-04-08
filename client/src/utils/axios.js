@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 const intence = Axios.create({
-    baseURL: `https://blog-app-mhs.herokuapp.com`
+    baseURL: `http://localhost:5000`
 })
 
 export default intence

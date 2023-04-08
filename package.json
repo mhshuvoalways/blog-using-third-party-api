@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "name": "react-blog-app",
   "version": "1.0.0",
